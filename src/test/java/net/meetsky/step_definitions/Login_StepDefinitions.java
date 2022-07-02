@@ -20,6 +20,7 @@ public class Login_StepDefinitions {
     public void user_goes_to_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("web.url"));
     }
+
     @When("user enters valid {string} to the username box")
     public void user_enters_valid_to_the_username_box(String string) {
         string = ConfigurationReader.getProperty("username");
@@ -37,8 +38,8 @@ public class Login_StepDefinitions {
     }
     @Then("user should be navigate to main page")
     public void user_should_be_navigate_to_main_page() {
-        BrowserUtils.waitForVisibility(mainPage.mainHeader,10);
-        Assert.assertTrue(mainPage.mainHeader.isDisplayed());
+        Assert.assertTrue(mainPage.avatarButton.isDisplayed());
+        Assert.assertFalse(loginPage.usernameBox.isDisplayed());
     }
 
     @When("user enters invalid username to username box")
@@ -49,6 +50,7 @@ public class Login_StepDefinitions {
     @Then("user should not be able navigate to main page")
     public void user_should_not_be_able_navigate_to_main_page() {
         Assert.assertTrue(loginPage.usernameBox.isDisplayed());
+        //Assert.assertFalse(mainPage.mainHeader.isDisplayed());
     }
     @Then("user should see please fill out this filed message in password box")
     public void user_should_see_please_fill_out_this_filed_message_in_password_box() {
@@ -66,5 +68,12 @@ public class Login_StepDefinitions {
         String message= loginPage.usernameBox.getAttribute("validationMessage");
         Assert.assertEquals("Lütfen bu alanı doldurun.",message);
     }
+
+
+    @Then("user can see the password in a form of dots by default")
+    public void user_can_see_the_password_in_a_form_of_dots_by_default() {
+        Assert.assertEquals(loginPage.passwordBox.getAttribute("type"), "password");
+    }
+
 
 }

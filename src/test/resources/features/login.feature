@@ -1,7 +1,7 @@
-@METSK-331 @regression
+@METSK-331
 Feature: Login functionality works properly
 
-  @METSK-330 @smoke
+  @METSK-330
   Scenario: Checking login functionality with valid credentials
     Given user goes to login page
     When user enters valid "username" to the username box
@@ -30,3 +30,13 @@ Feature: Login functionality works properly
     When user enters invalid password to password box
     And user clicks the log in button
     Then user should see please fill out this filed message in the username box
+
+    @METSK-372
+    Scenario: Checking that user can see the password in a form of dots by default
+      Given user goes to login page
+      When user enters valid "password" to the password box
+      Then user can see the password in a form of dots by default
+
+
+
+
