@@ -52,6 +52,13 @@ public class Login_StepDefinitions {
         Assert.assertTrue(loginPage.usernameBox.isDisplayed());
         //Assert.assertFalse(mainPage.mainHeader.isDisplayed());
     }
+
+    @Then("user should see Wrong username or password")
+    public void user_should_see_wrong_username_or_password() {
+        String message =loginPage.wrongUsernamePasswordMessage.getText();
+        Assert.assertEquals( "Kullanıcı adı ya da parola hatalı.", message);
+    }
+
     @Then("user should see please fill out this filed message in password box")
     public void user_should_see_please_fill_out_this_filed_message_in_password_box() {
         String message= loginPage.passwordBox.getAttribute("validationMessage");
@@ -69,11 +76,38 @@ public class Login_StepDefinitions {
         Assert.assertEquals("Lütfen bu alanı doldurun.",message);
     }
 
-
     @Then("user can see the password in a form of dots by default")
     public void user_can_see_the_password_in_a_form_of_dots_by_default() {
         Assert.assertEquals(loginPage.passwordBox.getAttribute("type"), "password");
     }
 
+    @When("user click eye icon next to password")
+    public void user_click_eye_icon_next_to_password() {
+        loginPage.showPasswordExplicitlyIcon.click();
+    }
+    @Then("user can see the password explicitly if needed")
+    public void user_can_see_the_password_explicitly_if_needed() {
+        Assert.assertEquals(loginPage.passwordBox.getAttribute("type"), "text");
+    }
 
+    @When("user clicks Forgot password link on the login page")
+    public void user_clicks_forgot_password_link_on_the_login_page() {
+        loginPage.forgotPasswordLink.click();
+    }
+    @Then("user can see Reset Password button on the next page")
+    public void user_can_see_reset_password_button_on_the_next_page() {
+        Assert.assertTrue(loginPage.resetPasswordButton.isDisplayed());
+    }
+
+    @Then("user can see valid placeholders on username")
+    public void user_can_see_valid_placeholders_on_username() {
+        String placeholder = loginPage.usernameBox.getAttribute("placeholder");
+        Assert.assertEquals("Kullanıcı adı ya da e-posta", placeholder);
+    }
+
+    @Then("user can see valid placeholders on password")
+    public void user_can_see_valid_placeholders_on_password() {
+        String placeholder = loginPage.passwordBox.getAttribute("placeholder");
+        Assert.assertEquals("Parola", placeholder);
+    }
 }

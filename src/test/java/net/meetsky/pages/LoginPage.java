@@ -22,6 +22,18 @@ public class LoginPage {
     @FindBy(id ="submit-form")
     public WebElement logInButton;
 
+    @FindBy(xpath = "//p[@class='warning wrongPasswordMsg']")
+    public WebElement wrongUsernamePasswordMessage;
+
+    @FindBy (xpath = "//img[@src='/core/img/actions/toggle.svg']")
+    public WebElement showPasswordExplicitlyIcon;
+
+    @FindBy (id="lost-password")
+    public WebElement forgotPasswordLink;
+
+    @FindBy(id="reset-password-submit")
+    public WebElement resetPasswordButton;
+
     public void login(){
         Driver.getDriver().get(ConfigurationReader.getProperty("web.url"));
         usernameBox.sendKeys(ConfigurationReader.getProperty("username"));

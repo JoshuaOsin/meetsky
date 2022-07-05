@@ -34,9 +34,12 @@ public class Logout_StepDefinitions {
     }
     @Then("user lands on the login page")
     public void user_lands_on_the_login_page() {
-        //Assert.assertEquals(Driver.getDriver().getTitle(),"Meetsky - QA");
-        String loginPageTitle = Driver.getDriver().getTitle();
-        Assert.assertEquals("Meetsky - QA",loginPageTitle);
+        Assert.assertTrue(loginPage.usernameBox.isDisplayed());
+    }
+
+    @Then("user click step back button")
+    public void user_click_step_back_button() {
+        Driver.getDriver().navigate().back();
     }
 
 
