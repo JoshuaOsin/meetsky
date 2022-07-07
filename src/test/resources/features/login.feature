@@ -66,7 +66,7 @@ Feature: Login functionality works properly
     When user clicks Forgot password link on the login page
     Then user can see Reset Password button on the next page
 
-    @METSK-389
+  @METSK-389
     Scenario: Checking that an see valid placeholders on Username
       Given user goes to login page
       Then user can see valid placeholders on username
