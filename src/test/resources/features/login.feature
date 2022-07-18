@@ -1,4 +1,4 @@
-@METSK-331
+@METSK-331 #Test Execution
 Feature: Login functionality works properly
 
   @METSK-330
@@ -71,7 +71,7 @@ Feature: Login functionality works properly
       Given user goes to login page
       Then user can see valid placeholders on username
 
-  @METSK-390
+  @METSK-407
   Scenario: Checking that an see valid placeholders on Password
     Given user goes to login page
     Then user can see valid placeholders on password

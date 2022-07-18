@@ -6,9 +6,7 @@ import io.cucumber.java.en.When;
 import net.meetsky.pages.LoginPage;
 import net.meetsky.pages.MainPage;
 import net.meetsky.utilities.BrowserUtils;
-import net.meetsky.utilities.ConfigurationReader;
 import net.meetsky.utilities.Driver;
-import org.bouncycastle.jcajce.provider.symmetric.IDEA;
 import org.junit.Assert;
 
 public class Logout_StepDefinitions {

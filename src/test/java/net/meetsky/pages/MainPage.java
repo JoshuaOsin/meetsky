@@ -10,7 +10,7 @@ public class MainPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-   @FindBy(id="expand")  // (xpath = "//div[@id='expand']")
+    @FindBy(id="expand")  // (xpath = "//div[@id='expand']")
     public WebElement avatarButton;
 
     @FindBy (xpath = "//ul/li[@data-id='logout']")

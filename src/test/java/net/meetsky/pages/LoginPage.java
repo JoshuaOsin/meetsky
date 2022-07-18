@@ -40,7 +40,6 @@ public class LoginPage {
         passwordBox.sendKeys(ConfigurationReader.getProperty("password"));
         //loginPage.logInButton.click();
         BrowserUtils.clickWithJS(logInButton);
-        BrowserUtils.waitFor(5);
     }
 
 }

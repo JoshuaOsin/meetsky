@@ -1,3 +1,4 @@
+@METSK-380 #Test Execution
 Feature: Checking functionality of log out.
 
 @METSK-379
